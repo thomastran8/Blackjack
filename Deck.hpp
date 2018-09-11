@@ -27,7 +27,6 @@ private:
 	int m_playerAces {0};
 	int m_dealerAces {0};
 
-	int getRandomNumber(int min, int max);
 	void swapCard(Card &cardA, Card &cardB);
 
 public:

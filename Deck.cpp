@@ -1,17 +1,6 @@
 #include "Deck.hpp"
 #include "Globals.hpp"
 
-int Deck::getRandomNumber(int min, int max)
-{
-    // Setup mersenne twister for uniform randomization
-    std::random_device rd {};
-    std::mt19937 mersenne {rd()};
-
-    std::uniform_int_distribution<> randCard(min, max);
-
-    return randCard(mersenne);
-}
-
 void Deck::swapCard(Card &cardA, Card &cardB)
 {
     Card tempCard = cardA;
@@ -40,9 +29,14 @@ void Deck::printDeck() const
 
 void Deck::shuffleDeck()
 {
+    // Setup mersenne twister for uniform randomization
+    std::random_device rd {};
+    std::mt19937 mersenne {rd()};
+    std::uniform_int_distribution<> randCard(0, g_deckSize-1);
+
     for (int index {0}; index < g_deckSize; ++index)
     {
-        int randIndex = getRandomNumber(0, g_deckSize-1);
+        int randIndex = randCard(mersenne);
 
         swapCard(m_deck[index], m_deck[randIndex]);
     }

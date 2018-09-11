@@ -4,8 +4,8 @@
 
 int main()
 {
-    std::srand(static_cast<unsigned int>(std::time(0)));
-    std::rand();    // Windows fix
+    // std::srand(static_cast<unsigned int>(std::time(0)));
+    // std::rand();    // Windows fix
 
     Deck deck;
     deck.shuffleDeck();

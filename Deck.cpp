@@ -71,6 +71,7 @@ Deck::BlackJackStatus Deck::playBlackJack()
         std::cout << "h to hit or s to stand: ";
         char decision {};
         std::cin >> decision;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
         if (decision == 's')
         {
